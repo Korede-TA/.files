@@ -1,3 +1,5 @@
 install() {
-  source "$DOTPLUGIN/set-values"
+  if [ `uname` = Darwin ]; then
+    source "$DOTPLUGIN/set-values"
+  fi
 }
