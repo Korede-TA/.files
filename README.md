@@ -22,7 +22,7 @@ Whether you're starting with a brand new machine or want to install Dot on
 a machine you've been using for a while, run the following in your terminal:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.github.com/sds/dot/master/bootstrap/remote-install)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/sds/dot/master/bootstrap/remote-install)"
 ```
 
 Have a look at the [source](https://github.com/sds/dot/blob/master/bootstrap/remote-install)
