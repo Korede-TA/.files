@@ -28,7 +28,6 @@ git-refresh () {
   if [ "${remote}" == "." ]; then
     local rebase_ref="${remote_branch}"
   else
-    git fetch ${remote}
     local rebase_ref="${remote}/${remote_branch}"
   fi
 
@@ -45,4 +44,5 @@ git-refresh () {
   fi
 }
 
+git fetch --all
 git-refresh
