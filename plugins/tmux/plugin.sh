@@ -7,17 +7,16 @@ tmux() {
   SOCK_SYMLINK=~/.ssh/tmux_ssh_auth_sock
   if [ -r "$SSH_AUTH_SOCK" ]; then
     rm -f $SOCK_SYMLINK && ln -s $SSH_AUTH_SOCK $SOCK_SYMLINK
-    tmux_command="env SSH_AUTH_SOCK=$SOCK_SYMLINK `which tmux`"
+    tmux_env="SSH_AUTH_SOCK=$SOCK_SYMLINK "
   else
-    tmux_command=`which tmux`
+    tmux_env=""
   fi
-
 
   if [ -z "$@" ]; then
     # Attach to session with the current directory name if one exists,
     # otherwise automatically create a session with the current directory name
-    $tmux_command new -A -s "$(basename $(pwd))"
+    env $tmux_env `which tmux` new -A -s "$(basename $(pwd))"
   else
-    $tmux_command "$@"
+    env $tmux_env `which tmux` "$@"
   fi
 }
