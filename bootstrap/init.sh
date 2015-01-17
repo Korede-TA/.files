@@ -48,6 +48,19 @@ forcealias() {
   builtin alias "$@"
 }
 
+# Return whether a function with the given name has been defined in the current
+# shell.
+function_defined() {
+  local func=$1
+
+  case `current_shell` in
+    zsh)
+      functions $func > /dev/null ;;
+    *)
+      [ "$(type -t $func)" = "function" ] ;;
+  esac
+}
+
 # Return whether executable is recognized (i.e. is in the system path)
 in_path() {
   command -v $1 >/dev/null 2>&1
