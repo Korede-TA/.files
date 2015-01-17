@@ -7,6 +7,7 @@
   ci       = commit -v
   ctags    = "!f() { $DOTDIR/plugins/git/scripts/ctags "$@"; }; f"
   co       = checkout
+  cp       = cherry-pick
   d        = diff
   fresh    = "!f() { $DOTDIR/plugins/git/scripts/fresh "$@"; }; f"
   hash     = !sh -c 'git rev-parse ${1-HEAD}' -
