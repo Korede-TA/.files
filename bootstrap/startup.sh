@@ -19,6 +19,14 @@ bootstrap () {
     exts="$exts $shell"
   fi
 
+  # Perform any shell-specific tasks that must happen first
+  for ext in `words $exts`; do
+    local src_file="$DOTDIR/bootstrap/start.$ext"
+    if [ -s "$src_file" ]; then
+      source "$src_file"
+    fi
+  done
+
   # For each plugin...
   for DOTPLUGIN in `find $DOTPLUGINSDIR -mindepth 1 -maxdepth 1 -type d`; do
     # Source the generic .sh files first, then the shell-specific ones
