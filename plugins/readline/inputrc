@@ -7,14 +7,6 @@
 # to a directory, append a slash
 set mark-symlinked-directories
 
-# Control-A and Control-E are the defaults here (and continue to work)
-# but Control-Left and Control-Right are a bit more pleasant to use
-# Must also configure the Terminal to send "\033[5D" and "\033[5C"
-# for Control-Left and Control-Right respectively, otherwise readline
-# will never see these keystrokes:
-"\e[5D": beginning-of-line
-"\e[5C": end-of-line
-
 # Hit tab to show a list of possible completions, ignoring case
 set completion-ignore-case
 set show-all-if-ambiguous
@@ -35,6 +27,3 @@ set output-meta
 
 # do not convert 8-bit characters into ASCII key sequences
 set convert-meta off
-
-# experimenting with vi editing mode
-#set editing-mode vi
