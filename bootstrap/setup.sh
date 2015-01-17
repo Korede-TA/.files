@@ -141,20 +141,24 @@ ensure_git_repo() {
 setup_dot_plugin() {
   local plugin_name=$1
   local plugin_dir="$DOTPLUGINSDIR/$plugin_name"
-  local script="$plugin_dir/setup.sh"
 
   # Define variable so plugin install script can use it for convenience
   DOTPLUGIN="$plugin_dir"
 
-  # Execute in subshell to prevent functions clobbering namespace
-  (
-    source "$script" &&
-    for func in `words setup $DOTSETUPTYPE`; do
-      if [ "`type -t $func`" = "function" ]; then
-        $func
-      fi
-    done
-  )
+  for script in `words setup.sh setup.$(current_shell)`; do
+    script_path="$plugin_dir/$script"
+    [ ! -e "$script_path" ] && continue
+
+    # Execute in subshell to prevent functions clobbering namespace
+    (
+      source "$script_path" &&
+      for func in `words setup $DOTSETUPTYPE`; do
+        if function_defined $func; then
+          $func
+        fi
+      done
+    )
+  done
 }
 
 setup_dot() {

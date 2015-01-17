@@ -28,7 +28,7 @@ bootstrap () {
       fi
     done
 
-    # Perform any shell-specific tasks for loading this plugin
+    # Perform any shell-specific tasks for loading a plugin
     local src_file="$DOTDIR/bootstrap/plugin.$shell"
     if [ -s "$src_file" ]; then
       source "$src_file"
