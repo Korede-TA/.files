@@ -4,6 +4,6 @@ kitchen () {
   if [ -e Gemfile ] && grep "test-kitchen" Gemfile > /dev/null; then
     bundle exec kitchen "$@"
   else
-    kitchen "$@"
+    command kitchen "$@"
   fi
 }
