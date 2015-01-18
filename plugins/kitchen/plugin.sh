@@ -7,3 +7,6 @@ kitchen () {
     command kitchen "$@"
   fi
 }
+
+# `k` is already used for knife, so us `kit` for kitchen
+alias kit=kitchen
