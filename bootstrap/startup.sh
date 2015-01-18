@@ -50,6 +50,16 @@ bootstrap () {
       source "$src_file"
     fi
   done
+
+  # Now execute any final scripts for each plugin
+  for DOTPLUGIN in `find $DOTPLUGINSDIR -mindepth 1 -maxdepth 1 -type d`; do
+    # Source the generic .sh files first, then the shell-specific ones
+    for ext in `words $exts`; do
+      if [ -s "$DOTPLUGIN/finish.$ext" ]; then
+        source "$DOTPLUGIN/finish.$ext"
+      fi
+    done
+  done
 }
 
 bootstrap && unset bootstrap
