@@ -20,9 +20,3 @@ extract () {
     echo "'$1' is not a valid file"
   fi
 }
-
-# Get external and internal IP addresses
-ip () {
-  echo `curl -s -m 5 'http://www.showmyip.com/simple/'` "(external)"
-  ifconfig | grep "inet " | grep -v "127.0.0.1" | awk '{ print $2 }'
-}
