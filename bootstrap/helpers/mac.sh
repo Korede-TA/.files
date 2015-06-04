@@ -2,7 +2,7 @@ ensure_homebrew_installed() {
   if [ ! $(command -v brew) ]; then
     echo "You may be asked for your sudo password to install:"
     sudo -v
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install git # Commonly used so just install it now
   fi
 
