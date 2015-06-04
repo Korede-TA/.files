@@ -9,8 +9,7 @@ ensure_homebrew_installed() {
   if ! brew cask >/dev/null 2>&1; then
     echo "You may be asked for your sudo password to install:"
     sudo -v
-    brew tap phinze/homebrew-cask
-    brew install brew-cask
+    brew install caskroom/cask/brew-cask
   fi
 }
 
