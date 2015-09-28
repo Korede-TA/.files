@@ -58,6 +58,11 @@
   old          = red bold
   untracked    = bold
   whitespace   = yellow reverse
+[color "diff-highlight"]
+  oldNormal    = "red bold"
+  oldHighlight = "red bold 52"
+  newNormal    = "green bold"
+  newHighlight = "green bold 22"
 [color "grep"]
   context      = normal
   filename     = green bold
@@ -81,6 +86,7 @@
 [core]
   autocrlf     = input
   excludesfile = ~/.gitignore
+  pager = bash -c "$DOTDIR/plugins/git/scripts/diff-highlight | less -iFMRSX" -
 [github]
   user = sds
 [grep]
