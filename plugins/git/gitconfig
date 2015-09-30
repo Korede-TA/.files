@@ -86,7 +86,7 @@
 [core]
   autocrlf     = input
   excludesfile = ~/.gitignore
-  pager = bash -c "$DOTDIR/plugins/git/scripts/diff-highlight | less -iFMRSX" -
+  pager = bash -c "$DOTDIR/plugins/git/scripts/diff-highlight | less -iMRSX" -
 [github]
   user = sds
 [grep]
