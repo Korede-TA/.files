@@ -81,3 +81,13 @@ cask() {
     uninstall_cask $cask
   fi
 }
+
+# Allow application to control UI elements.
+enable_accessibility() {
+  bundle=$1
+
+  sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db \
+    "INSERT OR REPLACE INTO access
+     (service, client, client_type, allowed, prompt_count)
+     VALUES ('kTCCServiceAccessibility', '$bundle', 0, 1, 1);"
+}
