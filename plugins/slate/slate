@@ -16,8 +16,7 @@ alias positionleader ctrl;shift;cmd
 alias browser  'Google Chrome'
 alias terminal 'iTerm'
 alias mail     'Sparrow'
-alias chat     'Messages'
-alias irc      'Textual'
+alias chat     'Slack'
 alias music    'Spotify'
 alias todo     'Reminders'
 alias calendar 'Calendar'
@@ -60,18 +59,16 @@ bind l:${motionleader} focus right
 bind r:${positionleader} relaunch
 
 # Monitor aliases
-alias widescreen 2560x1440
-alias laptop1 1680x1050
-alias laptop2 2560x1600
+alias widescreen 2560x1600
+alias laptop1 2880x1800
+alias laptop2 1680x1050
 
 # Layout with large monitor directly above laptop screen
 layout headsUp ${terminal} ${full} ${widescreen}
 layout headsUp ${browser} ${full} ${widescreen}
 layout headsUp ${mail} ${lefthalf} ${widescreen}
-layout headsUp ${chat} ${righthalf} ${laptop2}
-layout headsUp ${irc} ${full} ${laptop2}
+layout headsUp ${chat} ${righthalf} ${widescreen}
 layout headsUp ${music} ${full} ${widescreen}
-layout headsUp ${todo} ${lefthalf} ${laptop2}
 layout headsUp ${calendar} ${full} ${widescreen}
 default headsUp resolutions:${laptop1};${laptop2};${widescreen}
 
