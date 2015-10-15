@@ -16,6 +16,6 @@ if [ -z "$install_volume" ]; then
   exit 1
 fi
 
-sudo $installer/Contents/Resources/createinstallmedia \
-  --volume $install_volume \
-  --applicationpath $installer
+sudo "$installer/Contents/Resources/createinstallmedia" \
+  --volume "$install_volume" \
+  --applicationpath "$installer"
