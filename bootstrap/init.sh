@@ -7,7 +7,7 @@ export DOTTMPDIR="$DOTDIR/tmp"
 export DOTPLUGINSDIR="$DOTDIR/plugins"
 
 # Prefer applications from HOME bin
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Returns a string representing the shell running this script
 current_shell() {
