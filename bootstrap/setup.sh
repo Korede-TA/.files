@@ -191,8 +191,13 @@ setup_dot() {
   # Write shell config files to point to bootstrap script
   for startup_file in `words .bash_profile .zshrc`; do
     file "$HOME/$startup_file" <<EOF
+# Don't change this file! Edit ${startup_file}.local instead.
 export DOTDIR="$DOTDIR"
 source "\$DOTDIR/bootstrap/startup.sh"
+
+if [ -e "$HOME/${startup_file}.local" ]; then
+  source "$HOME/${startup_file}.local"
+fi
 EOF
   done
 
