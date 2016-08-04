@@ -20,6 +20,11 @@ alias chat     'Slack'
 alias music    'Spotify'
 alias todo     'Reminders'
 alias calendar 'Calendar'
+alias messages 'Messages'
+alias scratch  'Notational Velocity'
+alias notes    'Quiver'
+alias sql      'Sequel Pro'
+alias todo     'Reminders'
 
 # Window position aliases
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
@@ -70,6 +75,11 @@ layout headsUp ${mail} ${lefthalf} ${widescreen}
 layout headsUp ${chat} ${righthalf} ${widescreen}
 layout headsUp ${music} ${full} ${widescreen}
 layout headsUp ${calendar} ${full} ${widescreen}
+layout headsUp ${messages} ${righthalf} ${widescreen}
+layout headsUp ${scratch} ${righthalf} ${widescreen}
+layout headsUp ${notes} ${righthalf} ${widescreen}
+layout headsUp ${sql} ${full} ${widescreen}
+layout headsUp ${todo} ${lefthalf} ${widescreen}
 default headsUp resolutions:${laptop1};${laptop2};${widescreen}
 
 bind 0:${positionleader} layout headsUp
