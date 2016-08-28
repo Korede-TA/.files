@@ -31,7 +31,7 @@
   unwip    = reset HEAD~
   wip      = commit -m WIP --no-verify
 [apply]
-  whitespace = fix
+  whitespace = warn
 [branch]
   autosetupmerge  = always
   autosetuprebase = always
