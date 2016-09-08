@@ -1,13 +1,13 @@
 ensure_homebrew_installed() {
   if [ ! $(command -v brew) ]; then
-    echo "You may be asked for your sudo password to install:"
+    echo "You may be asked for your sudo password to install Homebrew:"
     sudo -v
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install git # Commonly used so just install it now
   fi
 
   if ! brew cask >/dev/null 2>&1; then
-    echo "You may be asked for your sudo password to install:"
+    echo "You may be asked for your sudo password to install Hombrew Cask:"
     sudo -v
     brew install caskroom/cask/brew-cask
   fi
@@ -90,4 +90,11 @@ enable_accessibility() {
     "INSERT OR REPLACE INTO access
      (service, client, client_type, allowed, prompt_count)
      VALUES ('kTCCServiceAccessibility', '$bundle', 0, 1, 1);"
+}
+
+disable_accessibility() {
+  bundle=$1
+
+  sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db \
+    "DELETE from access where client='$bundle'"
 }
