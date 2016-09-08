@@ -3,6 +3,9 @@ tell application "System Preferences"
   set current pane to pane "com.apple.preference.keyboard"
 end tell
 
+# Give Keyboard pane time to load, otherwise "tab group 1" may not be ready yet
+delay 1
+
 tell application "System Events"
   tell process "System Preferences"
     click button "Modifier Keys…" of tab group 1 of window "Keyboard"
