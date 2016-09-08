@@ -1,5 +1,6 @@
 install() {
   if [ `uname` = Darwin ]; then
+    enable_accessibility 'com.apple.RemoteDesktopAgent'
     enable_accessibility 'com.apple.Terminal'
     enable_accessibility 'com.googlecode.iterm2'
 
