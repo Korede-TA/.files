@@ -2,7 +2,7 @@ ensure_homebrew_installed() {
   if [ ! $(command -v brew) ]; then
     echo "You may be asked for your sudo password to install Homebrew:"
     sudo -v
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install git # Commonly used so just install it now
   fi
 
