@@ -13,4 +13,4 @@ fpath=($DOTDIR/plugins/terminal/zsh-completions/src $fpath)
 
 # Initialize completion system now that all completions are in $fpath
 autoload -U compinit
-compinit -d "${DOTTMPDIR}/zcompdump"
+compinit -d "${DOTTMPDIR}/zcompdump" -u
