@@ -9,7 +9,8 @@
   co       = checkout
   cp       = cherry-pick
   d        = diff
-  fresh    = "!f() { $DOTDIR/plugins/git/scripts/fresh "$@"; }; f"
+  sync     = "!f() { $DOTDIR/plugins/git/scripts/sync "$@"; }; f"
+  s        = "!f() { $DOTDIR/plugins/git/scripts/sync "$@"; }; f"
   hash     = !sh -c 'git rev-parse ${1-HEAD}' -
   hr       = reset --hard
   lg       = log --oneline --graph --decorate

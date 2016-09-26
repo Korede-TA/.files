@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-git-refresh () {
+git-sync () {
   # Not sure why, but sometimes `git diff-index` returns a non-zero exit status
   # even when there are no changes unless you execute `git status` first.
   # Execute it to avoid this problem.
@@ -50,4 +50,4 @@ git-refresh () {
 }
 
 git fetch --all
-git-refresh
+git-sync
