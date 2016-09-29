@@ -1,6 +1,6 @@
 setup () {
   repo "git@github.com:sds/.vim.git" "$DOTPLUGIN/vim"
-  symlink "$HOME/.vim" "$DOTPLUGIN/vim"
+  symlink "$XDG_CONFIG_HOME/vim" "$DOTPLUGIN/vim"
 }
 
 install () {
