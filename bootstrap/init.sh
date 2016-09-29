@@ -71,6 +71,31 @@ words() {
   echo "$@" | tr -s " " "\012"
 }
 
+# Initialize XDG base directory environment variables as defined in:
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-0.6.html.
+#
+# We explicitly define them here so we don't need to support the additional work
+# of handling the case where they are not explicitly defined, so we can write
+# the rest of our configurations to expect that they exist.
+init_xdg_variables() {
+  # Directory where user-specific data files should be stored.
+  export XDG_DATA_HOME="$HOME/.local/share"
+
+  # Preference-ordered set of base directories to search for data files in
+  # addition to the $XDG_DATA_HOME base directory.
+  export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
+
+  # Directory where user-specific configuration files should be stored.
+  export XDG_CONFIG_HOME="$HOME/.config"
+
+  # Preference-ordered set of base directories to search for configuration files
+  # in addition to the $XDG_CONFIG_HOME base directory.
+  export XDG_CONFIG_DIRS="/etc/xdg"
+
+  # Directory where user-specific non-essential data files should be stored.
+  export XDG_CACHE_HOME="$HOME/.cache"
+}
+
 # Make working with colour escape codes easier
 init_dot_colours() {
   local prefix=''
