@@ -18,7 +18,7 @@ tmux () {
 
     # Attach to session with the current directory name if one exists,
     # otherwise automatically create a session with the current directory name
-    tmux_cmd="new -A -s $session_name"
+    tmux_cmd="-f $XDG_CONFIG_HOME/tmux/tmux.conf new -A -s $session_name"
   else
     # Otherwise just forward along the arguments given
     tmux_cmd="$@"

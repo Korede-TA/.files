@@ -3,5 +3,8 @@ setup() {
     formula tmux
   fi
 
-  symlink "$HOME/.tmux.conf" "$DOTPLUGIN/tmux.conf"
+  # TODO: Replace with helper for XDG
+  mkdir -p "$XDG_CONFIG_HOME/tmux"
+
+  symlink "$XDG_CONFIG_HOME/tmux/tmux.conf" "$DOTPLUGIN/tmux.conf"
 }
