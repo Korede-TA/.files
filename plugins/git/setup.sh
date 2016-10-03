@@ -3,6 +3,9 @@ setup () {
     formula git
   fi
 
-  symlink "$HOME/.gitconfig" "$DOTPLUGIN/gitconfig"
-  symlink "$HOME/.gitignore" "$DOTPLUGIN/gitignore"
+  # TODO: use XDG helper
+  mkdir -p "$XDG_CONFIG_HOME/git"
+
+  symlink "$XDG_CONFIG_HOME/git/config" "$DOTPLUGIN/gitconfig"
+  symlink "$XDG_CONFIG_HOME/git/ignore" "$DOTPLUGIN/gitignore"
 }

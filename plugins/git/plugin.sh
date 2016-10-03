@@ -1,5 +1,8 @@
 alias g=git
 
+# Don't load configuration from /etc (use our local configuration only)
+export GIT_CONFIG_NOSYSTEM=1
+
 active_git_branch () {
   local ref=`git symbolic-ref HEAD 2> /dev/null`
   echo "${ref#refs/heads/}"
