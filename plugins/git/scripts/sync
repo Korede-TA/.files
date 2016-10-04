@@ -26,7 +26,7 @@ git-sync () {
   if [ "$remote" == "." ]; then
     # Switch to tracking branch, refresh it, and switch back to our branch
     git checkout "${remote_branch}"
-    git-refresh
+    git-sync
     git checkout "${local_branch}"
   fi
 
