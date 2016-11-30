@@ -85,6 +85,7 @@
   nobranch     = red bold
   untracked    = normal
 [core]
+  abbrev       = 8
   autocrlf     = input
   excludesfile = ~/.gitignore
   pager = bash -c "$DOTDIR/plugins/git/scripts/diff-highlight | less -iMRSX" -
