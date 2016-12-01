@@ -148,3 +148,6 @@ init_dot_colours() {
   }
   alias colors=colours
 }
+
+# Need this here so initial bootstrap install works
+init_xdg_variables

@@ -12,7 +12,6 @@ bootstrap () {
   local exts=sh
   local shell=`current_shell`
 
-  init_xdg_variables
   init_dot_colours
 
   # Include shell-specific extension in list of files to source after .sh files
