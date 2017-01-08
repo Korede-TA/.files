@@ -1,0 +1,3 @@
+# Vim doesn't support XDG out of the box, so override the initial command
+# to get Vim to load the correct configuration
+export VIMINIT="let \$MYVIMRC=\"$XDG_CONFIG_HOME/vim/vimrc\" | source \$MYVIMRC"

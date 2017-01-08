@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+tap homebrew/completions
+formula brew-cask-completion

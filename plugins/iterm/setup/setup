@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+cask iterm2
+
+# Install Source Code Pro font so we can use it in iTerm
+tap caskroom/fonts
+cask font-source-code-pro
+
+iterm_prefs_dir="$XDG_CONFIG_HOME/iterm"
+
+# Set directory to store preferences in so we can link it to our own
+if dot::installing; then
+  defaults write com.googlecode.iterm2 PrefsCustomFolder "$iterm_prefs_dir"
+fi
+
+dot::symlink "$iterm_prefs_dir/com.googlecode.iterm2.plist" "$DOT_PLUGIN_DIR/etc/com.googlecode.iterm2.plist"

@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# Installs initial configuration files
+if [ ! -d "$XDG_CONFIG_HOME/ranger" ]; then
+  ranger --copy-config=all
+fi

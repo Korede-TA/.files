@@ -1,0 +1,1 @@
+dot::symlink "$HOME/.hushlogin" "$DOT_PLUGIN_DIR/etc/hushlogin"

@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+dot::symlink "$HOME/.gemrc" "$DOT_PLUGIN_DIR/gemrc"

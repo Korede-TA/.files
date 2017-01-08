@@ -1,7 +1,0 @@
-SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
-
-# We need this layer of indirection to ensure that the shell used to execute the
-# install script is the user's shell. This is because some systems will default
-# to executing with bash even if the user's shell is zsh, so we need to use the
-# $SHELL environment variable to enforce the shell context.
-$SHELL $SCRIPT_DIR/bootstrap/install.sh $@
