@@ -7,6 +7,7 @@
   co       = checkout
   cp       = cherry-pick
   d        = diff
+  s        = sync
   hash     = !sh -c 'git rev-parse ${1-HEAD}' -
   hr       = reset --hard
   lg       = log --oneline --graph --decorate
@@ -25,7 +26,7 @@
   unstage  = "!f() { git reset HEAD "$@"; }; f"
   unstash  = stash pop
   unwip    = reset HEAD~
-  wip      = commit -m WIP --no-verify
+  wip      = commit -m WIP --no-verify --no-gpg-sign
 [apply]
   whitespace = warn
 [branch]
@@ -80,8 +81,9 @@
   nobranch     = red bold
   untracked    = normal
 [core]
+  abbrev       = 8
   autocrlf     = input
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.config/git/ignore
 [grep]
   extendedRegexp = true
   lineNumber     = true
