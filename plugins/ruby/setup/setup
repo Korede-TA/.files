@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if dot::os::mac; then
+  formula rbenv
+  formula ruby-build
+fi
+
+dot::symlink "$HOME/.irbrc" "$DOT_PLUGIN_DIR/etc/irbrc"
+dot::symlink "$HOME/.pryrc" "$DOT_PLUGIN_DIR/etc/pryrc"
