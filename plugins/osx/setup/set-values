@@ -12,6 +12,9 @@ sudo -v
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
+# Don't show the "Other..." user option on login screen
+sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWOTHERUSERS_MANAGED -bool FALSE
+
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
