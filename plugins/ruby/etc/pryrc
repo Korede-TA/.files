@@ -1,4 +1,4 @@
-Pry.config.history.file = "#{ENV['DOTLOGDIR']}/pry-history"
+Pry.config.history.file = "#{ENV['HOME']}/.pry-history"
 
 # Wrap ANSI codes so Readline knows where the prompt ends
 def colour(name, text)
