@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+formula openssl
+
+# Ensure `openssl` command uses newer openssl
+# Note that linking in this way will not prevent linking to the insecure
+# deprecated system OpenSSL even though you'll be using headers from the new
+# OpenSSL. Remember to explicitly pass include/library paths to the compiler:
+# e.g. -I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib
+dot::symlink "$(brew --prefix)/bin/openssl" "$(brew --prefix openssl)/bin/openssl"
