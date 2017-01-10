@@ -7,8 +7,9 @@ formula_installed() {
 
 install_formula() {
   formula="$1"
+  shift # Remaining args are flags
   if ! formula_installed "$formula"; then
-    brew install "$formula"
+    brew install "$formula" "$@"
   fi
 }
 
@@ -21,9 +22,10 @@ uninstall_formula() {
 
 formula() {
   formula="$1"
+  shift
 
   if dot::installing; then
-    install_formula "$formula"
+    install_formula "$formula" "$@"
   else
     uninstall_formula "$formula"
   fi

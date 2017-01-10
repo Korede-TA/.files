@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+if dot::os::mac; then
+  # libidn: internationalized domain name support
+  # libssh2: scp/sftp support
+  # nghttp2: HTTP/2 support
+  formula curl --with-libidn --with-libssh2 --with-nghttp2
+
+  # You'll still need to remember to explicitly specify includes/headers if you
+  # want to compile against the newer curl version instead of the system one
+  if dot::installing; then
+    brew link --force curl
+  fi
+fi
