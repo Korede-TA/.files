@@ -93,7 +93,7 @@
   log = 100
 [pager]
   color = true
-  diff = diff-so-fancy | less -MRSX --pattern '^(Date|added|deleted|modified): '
+  diff = diff-so-fancy | less -MRX --pattern '^(Date|added|deleted|modified): '
 [push]
   default = current
 [rebase]
