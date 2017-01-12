@@ -3,7 +3,7 @@
                      git config --get user.email'
   authors  = shortlog -sne --no-merges
   br       = branch -v -v
-  ci       = commit -v
+  c        = commit -v
   co       = checkout
   cp       = cherry-pick
   d        = diff
