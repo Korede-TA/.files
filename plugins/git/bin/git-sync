@@ -55,3 +55,4 @@ git-sync () {
 
 git fetch --all
 git-sync
+git remote | xargs -n1 git remote prune
