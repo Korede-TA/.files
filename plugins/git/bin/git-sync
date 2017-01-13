@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -o errexit
+
 git-sync () {
   # Not sure why, but sometimes `git diff-index` returns a non-zero exit status
   # even when there are no changes unless you execute `git status` first.
@@ -8,18 +10,19 @@ git-sync () {
 
   if ! git diff-index --quiet HEAD; then
     echo "You have local changes; either stash them or get rid of them"
-    exit
+    return 1
   fi
 
-  local old_head=`git rev-parse HEAD`
-  local local_branch=`git symbolic-ref -q HEAD | sed 's/^refs\/heads\///'`
+  local old_head="$(git rev-parse HEAD)"
+  local local_branch="$(git symbolic-ref -q HEAD | sed 's/^refs\/heads\///')"
 
   if [ -z "${local_branch}" ]; then
     echo "HEAD is currently detached--aborting."
+    return 1
   fi
 
-  local remote_branch=`git config branch.${local_branch}.merge | sed 's/^refs\/heads\///'`
-  local remote=`git config branch.${local_branch}.remote`
+  local remote_branch="$(git config branch.${local_branch}.merge | sed 's/^refs\/heads\///')"
+  local remote="$(git config branch.${local_branch}.remote)"
 
   # If remote is local repository, then we're tracking a local branch
   # We want to fetch that branch's remote branch, so change to it and recurse
@@ -36,13 +39,14 @@ git-sync () {
     local rebase_ref="${remote}/${remote_branch}"
   fi
 
-  if [ -n "`git rev-list ${local_branch}..${rebase_ref}`" ]; then
+  if [ -n "$(git rev-list ${local_branch}..${rebase_ref})" ]; then
     echo "Rebasing ${local_branch} with changes from ${rebase_ref}"
     if ! git rebase ${rebase_ref}; then
       echo "#####################################################################"
       echo "UNABLE TO REBASE: '${local_branch}' has diverged from '${rebase_ref}'"
       echo "Run 'git rebase ${rebase_ref}' to deal with this conflict manually"
       git rebase --abort
+      return 1
     fi
 
     git submodule update --init
