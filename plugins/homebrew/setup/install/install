@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 ensure_homebrew_installed() {
   if ! command -v brew >/dev/null 2>&1; then
