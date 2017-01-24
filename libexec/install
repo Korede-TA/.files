@@ -16,3 +16,5 @@ else
   curl -L https://github.com/sds/.files/tarball/master \
     | tar -xzf - --strip-components 1 -C "$INSTALL_DIR"
 fi
+
+(cd "$INSTALL_DIR" && bin/install)
