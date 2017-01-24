@@ -1,0 +1,3 @@
+# Homebrew installs some utilities in /usr/local/sbin but this is not in the
+# default path. Add it.
+export PATH="/usr/local/sbin:$PATH"
