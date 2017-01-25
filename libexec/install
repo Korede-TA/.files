@@ -6,7 +6,7 @@ if [ -z "${INSTALL_DIR+x}" ]; then
   INSTALL_DIR="$HOME/.files"
 fi
 
-GIT_REMOTE_URL="${GIT_REMOTE_URL:-https://github.com/sds/.files}"
+GIT_REMOTE_URL="${GIT_REMOTE_URL:-git@github.com:sds/.files}"
 git clone --recursive "$GIT_REMOTE_URL" "$INSTALL_DIR"
 
 (cd "$INSTALL_DIR" && bin/install)
