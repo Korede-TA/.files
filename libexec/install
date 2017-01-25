@@ -6,15 +6,7 @@ if [ -z "${INSTALL_DIR+x}" ]; then
   INSTALL_DIR="$HOME/.files"
 fi
 
-if which git >/dev/null 2>&1; then
-  # If git already installed, clone the repo
-  GIT_REMOTE_URL="${GIT_REMOTE_URL:-https://github.com/sds/.files}"
-  git clone "$GIT_REMOTE_URL" "$INSTALL_DIR"
-else
-  # Otherwise download and extract tarball
-  mkdir -p "$INSTALL_DIR"
-  curl -L https://github.com/sds/.files/tarball/master \
-    | tar -xzf - --strip-components 1 -C "$INSTALL_DIR"
-fi
+GIT_REMOTE_URL="${GIT_REMOTE_URL:-https://github.com/sds/.files}"
+git clone --recursive "$GIT_REMOTE_URL" "$INSTALL_DIR"
 
 (cd "$INSTALL_DIR" && bin/install)
