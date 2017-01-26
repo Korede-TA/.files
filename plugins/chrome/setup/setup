@@ -1,2 +1,4 @@
+#!/usr/bin/env sh
+
 cask google-chrome
 cask google-hangouts # Voice plugin
