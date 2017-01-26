@@ -2,6 +2,7 @@
 
 if dot::os::mac; then
   formula git
+  formula tig
 fi
 
 dot::symlink "$XDG_CONFIG_HOME/git/config" "$DOT_PLUGIN_DIR/etc/gitconfig"
