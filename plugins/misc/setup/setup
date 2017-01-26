@@ -1,1 +1,3 @@
+#!/usr/bin/env sh
+
 dot::symlink "$HOME/.hushlogin" "$DOT_PLUGIN_DIR/etc/hushlogin"
