@@ -10,6 +10,15 @@ iterm_prefs_dir="$XDG_CONFIG_HOME/iterm"
 
 # Set directory to store preferences in so we can link it to our own
 if dot::installing; then
+  mkdir -p "$iterm_prefs_dir"
+  cp "$DOT_PLUGIN_DIR/etc/com.googlecode.iterm2" "$iterm_prefs_dir/com.googlecode.iterm2"
   defaults write com.googlecode.iterm2 PrefsCustomFolder "$iterm_prefs_dir"
   defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder 1
+  /usr/libexec/PlistBuddy -c \
+    "Set 'New Bookmarks':0:'Normal Font' 'SourceCodePro-Regular 14'" \
+    "$iterm_prefs_dir/com.googlecode.iterm2.plist"
+
+  /usr/libexec/PlistBuddy -c \
+    "Set 'OptionClickMovesCursor' false" \
+    "$iterm_prefs_dir/com.googlecode.iterm2.plist"
 fi
