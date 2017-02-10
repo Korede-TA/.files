@@ -21,4 +21,7 @@ if dot::installing; then
   /usr/libexec/PlistBuddy -c \
     "Set 'OptionClickMovesCursor' false" \
     "$iterm_prefs_dir/com.googlecode.iterm2.plist"
+
+  # Enable secure keyboard entry to prevent keyloggers from spying
+  defaults write com.googlecode.iterm2 "Secure Input" 1
 fi
