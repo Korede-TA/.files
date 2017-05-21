@@ -3,6 +3,5 @@
 dot::symlink "$HOME/.ssh/config" "$DOT_PLUGIN_DIR/etc/user_ssh_config"
 
 if dot::os::mac; then
-  tap homebrew/dupes
-  formula homebrew/dupes/openssh
+  formula openssh
 fi
