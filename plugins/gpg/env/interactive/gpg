@@ -1,0 +1,5 @@
+# Use current terminal to request password for GPG key
+export PINENTRY_USER_DATA="USE_CURSES=1"
+
+# Ensure pinentry program displays to the correct terminal
+export GPG_TTY="$(tty)"
