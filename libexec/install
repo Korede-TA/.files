@@ -7,6 +7,10 @@ if [ -z "${INSTALL_DIR+x}" ]; then
 fi
 
 GIT_REMOTE_URL="${GIT_REMOTE_URL:-git@github.com:sds/.files}"
-git clone --recursive "$GIT_REMOTE_URL" "$INSTALL_DIR"
+if [ -d "$INSTALL_DIR" ]; then
+  echo "Repository already exists! Skipping clone."
+else
+  git clone --recursive "$GIT_REMOTE_URL" "$INSTALL_DIR"
+fi
 
 (cd "$INSTALL_DIR" && bin/install)
