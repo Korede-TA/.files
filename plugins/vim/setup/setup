@@ -1,3 +1,7 @@
 #!/usr/bin/env sh
 
 dot::repo "git@github.com:sds/.vim.git" "$XDG_CONFIG_HOME/vim"
+
+if dot::os::mac; then
+  formula vim
+fi
