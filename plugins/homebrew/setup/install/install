@@ -8,13 +8,4 @@ ensure_homebrew_installed() {
   fi
 }
 
-ensure_homebrew_cask_installed() {
-  if ! brew cask >/dev/null 2>&1; then
-    echo "You may be asked for your sudo password to install Homebrew Cask:"
-    sudo -v
-    brew tap caskroom/cask
-  fi
-}
-
 ensure_homebrew_installed
-ensure_homebrew_cask_installed
