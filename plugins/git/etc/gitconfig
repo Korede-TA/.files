@@ -23,7 +23,7 @@
   smu      = submodule update --init
   st       = status -sb
   staged   = diff --cached
-  track    = !sh -c 'git branch --set-upstream-to $1' -
+  track    = branch --set-upstream-to # [upstream]
   unstage  = reset HEAD # [files...]
   unstash  = stash pop
   unwip    = reset HEAD~
