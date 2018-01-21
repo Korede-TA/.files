@@ -28,6 +28,7 @@
   unstash  = stash pop
   unwip    = reset HEAD~
   wip      = commit -m WIP --no-verify --no-gpg-sign
+  wt       = worktree
 [apply]
   whitespace = warn
 [branch]
