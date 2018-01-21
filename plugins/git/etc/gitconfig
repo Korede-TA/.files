@@ -24,7 +24,7 @@
   st       = status -sb
   staged   = diff --cached
   track    = !sh -c 'git branch --set-upstream-to $1' -
-  unstage  = "!f() { git reset HEAD "$@"; }; f"
+  unstage  = reset HEAD # [files...]
   unstash  = stash pop
   unwip    = reset HEAD~
   wip      = commit -m WIP --no-verify --no-gpg-sign
