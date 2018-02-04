@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# Compile and install custom terminfo files, giving us access to italics etc.
+for terminfo_file in "$DOT_PLUGIN_DIR/etc/"*; do
+  tic -o ~/.terminfo "$terminfo_file"
+done
