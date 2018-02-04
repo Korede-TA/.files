@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Amend an arbitrary revision with changes in the index.
 # This allows you to make changes to a commit that isn't HEAD.
