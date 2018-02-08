@@ -2,9 +2,6 @@
 
 set -x
 
-# Ask for the administrator password upfront
-sudo -v
-
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
@@ -330,6 +327,10 @@ defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnab
 ###############################################################################
 # Spotlight                                                                   #
 ###############################################################################
+
+# Disable keyboard shortcut since we use Alfred instead
+/usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c \
+  "Set AppleSymbolicHotKeys:64:enabled false"
 
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before.
