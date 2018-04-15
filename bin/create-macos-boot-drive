@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# Creates an OS X boot drive from an installer app bundle.
+# Creates a macOS boot drive from an installer app bundle.
 
 installer=$1
 if [ -z "$installer" ]; then
   echo "First argument must be path to installer"
-  echo "(e.g. \"/Applications/Install OS X El Capitan.app\")"
+  echo "(e.g. \"/Applications/Install macOS High Sierra.app\")"
+  exit 1
+fi
+
+echo "Verifying integrity of installer..."
+if ! codesign -dvv "$installer"; then
+  echo "Unable to verify installer!"
   exit 1
 fi
 
